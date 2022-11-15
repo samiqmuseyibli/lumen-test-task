@@ -12,7 +12,7 @@ class CompanyFactory extends Factory
      *
      * @var string
      */
-    protected $model = User::class;
+    protected $model = Company::class;
 
     /**
      * Define the model's default state.
@@ -22,8 +22,10 @@ class CompanyFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
-            'email' => $this->faker->unique()->safeEmail,
+            'user_id' => 1,
+            'title' => $this->faker->company,
+            'phone' => $this->faker->phoneNumber,
+            'description' => $this->faker->text,
         ];
     }
 }

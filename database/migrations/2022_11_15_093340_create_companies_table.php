@@ -18,7 +18,7 @@ return new class extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->string('title');
             $table->string('phone');
-            $table->string('description');
+            $table->text('description');
             $table->timestamps();
 
             $table->index('user_id');

@@ -22,4 +22,9 @@ class CompanyRepository implements Interfaces\CompanyRepositoryInterface
     {
         return Company::all();
     }
+
+    public function getByUser(int $userId)
+    {
+        return Company::where(['user_id' => $userId])->get();
+    }
 }

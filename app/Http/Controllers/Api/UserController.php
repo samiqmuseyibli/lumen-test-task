@@ -38,10 +38,10 @@ class UserController extends Controller
             'email' => 'required',
             'password' => 'required'
         ]);
-        $user = User::where('email', $request->input('email'))->first();
-        if (Hash::check($request->input('password'), $user->password)) {
+        $user = User::where('email', $request->post('email'))->first();
+        if ($user && Hash::check($request->post('password'), $user->password)) {
             $apikey = base64_encode(generateRandomString(40));
-            User::where('email', $request->input('email'))->update(['api_token' => "$apikey"]);
+            User::where('email', $request->post('email'))->update(['api_token' => "$apikey"]);
             return response()->json(['status' => true, 'api_token' => $apikey], Response::HTTP_OK);
         } else {
             return response()->json(['status' => false, 'error' => "Wrong password or email!"], 401);

@@ -36,7 +36,7 @@ class User extends Model implements AuthenticatableContract
      */
     public function companies()
     {
-        return $this->hasMany('App\Company','user_id');
+        return $this->hasMany('App\Models\Company','user_id');
     }
 
     public function setPasswordAttribute($password){

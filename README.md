@@ -20,10 +20,13 @@
 ``base url: http://127.0.0.1:8000/api/user``
 
 ```
-/ [GET]
+/ [GET][Auth required] 
 /register [POST]
 /sign-in [POST]
 /recover-password [POST]
 /recover-password [PATCH]
-/companies [POST]
-/companies [GET]
+/companies [POST][Auth required] 
+/companies [GET][Auth required] 
+```
+### Can find ``postman collection`` in the document root of application
+Ps: You have to add ``api_token`` keyword to request headers for auth required routes.
